@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mission 3</title>
     <link rel="stylesheet" href="../css/main.css" />
 </head>
+
 <body>
     <header>
         <nav>
@@ -59,7 +61,7 @@ ORDER BY 1, 2;<br>
 
 
         <h3>Résultat </h3>
-        <p><img src="Assets/leane.png" alt="résultat requete Leane"></p>
+        <img src="../image/leane.png" alt="résultat requete Leane">
 
 
         <hr>
@@ -98,7 +100,7 @@ ORDER BY 4;<br>
 </code>
 
         <h3>Résultat</h3>
-        <p><img src="assets/daniel.png" alt="résultat requete daniel"></p>
+        <p><img src="../image/daniel.png" alt="résultat requete daniel"></p>
 
 
         <hr>
@@ -138,7 +140,7 @@ WHERE (P.QteParUnit LIKE "*carton*"<br>
 </code>
 
         <h3>Résultat</h3>
-        <p><img src="assets/noemie1.png" alt="résultat requete Noémie"></p>
+        <p><img src="../image/noemie1.png" alt="résultat requete Noémie"></p>
 
 
         <hr>
@@ -178,7 +180,7 @@ ORDER BY Produit.UnitStock - Nz(Sum(DetailCommande.[Quantité]), 0) DESC;<br>
 </code>
 
         <h3>Résultat</h3>
-        <p><img src="assets/clem.png" alt="résultat requete Clément"></p>
+        <p><img src="../image/clement.png" alt="résultat requete Clément"></p>
 
 
         <hr>
@@ -208,14 +210,12 @@ SELECT c.CodeCli, c.Societe AS Company, c.Contact,<br>
 FROM (Clientele c LEFT JOIN Commande cmd ON c.CodeCli = cmd.CodeCli)<br>
      LEFT JOIN DetailCommande d ON cmd.NCommande = d.NCommande<br>
 GROUP BY c.CodeCli, c.Societe, c.Contact;<br>
-</code>
+        </code>
 
 
         <h3>Résultat </h3>
-        <p><img src="assets/antonius.png" alt="résultat requete Antonius"></p>
+        <p><img src="../image/antonius.png" alt="résultat requete Antonius"></p>
     </main>
-
-    <hr>
     <footer>
         <p>Fait par le groupe : Léane, Daniel, Noémie, Clément, Antonius</p>
     </footer>
