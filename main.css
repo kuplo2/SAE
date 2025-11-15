@@ -72,7 +72,7 @@ h2{
 }
 
 
-p u{
+p{
     display: block;
     border-left: 30px;
     margin: 20px;
@@ -83,7 +83,7 @@ u {
     text-decoration: underline;
 }
 
-ul {
+main ul {
     display: flex;
     flex-direction: column;
     border-bottom: solid 2px;
@@ -91,7 +91,7 @@ ul {
     margin: 30px;
 }
 
-ul>li{
+main ul>li{
     list-style-position: inside;
     list-style-type: " ▷ ";
     font-size: 0.9em;
