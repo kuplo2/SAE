@@ -50,6 +50,45 @@ INNER JOIN Categorie AS cat ON p.CodeCategorie = cat.CodeCategorie <br>
 WHERE cat.NomCategorie LIKE "*viande*" OR cat.NomCategorie LIKE "*poisson*" <br>
 ORDER BY 1,2; <br>
         </code>
+        <img src="ex2-2.png">
+        <hr>
+        <p>On cherche les 5 dernières commandes du client "Max Deschamps"</p>
+        <h3>Résultat</h3>
+        <code>
+SELECT TOP 5 com.NCommande, com.DateCde <br>
+FROM Commande AS com INNER JOIN Clientele AS cli ON com.CodeCli = cli.CodeClient <br>
+WHERE cli.Contact LIKE "max?deschamps" <br>
+ORDER BY 2 DESC, 1; <br>
+        </code>
+        <table>
+            <caption>Résultat de la requête SQL</caption>
+            <thead>
+                <th scope="col">N°Commande</th>
+                <th scope="col">Date Commande</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10717</td>
+                    <td>04/12/2021</td>
+                </tr>
+                <tr>
+                    <td>10672</td>
+                    <td>28/10/2021</td>
+                </tr>
+                <tr>
+                    <td>10298</td>
+                    <td>16/10/2021</td>
+                </tr>
+                <tr>
+                    <td>10610</td>
+                    <td>04/09/2021</td>
+                </tr>
+                <tr>
+                    <td>11047</td>
+                    <td>04/06/2021</td>
+                </tr>
+            </tbody>
+        </table>
 
 
 
