@@ -9,8 +9,8 @@
     <h1>Rapport SAE R1_04 et R1_02</h1>
     <h2>Table des matières </h2>
     <ol>
-        <li><a href="#Presentation">Présentation du groupe</a></li>
-        <li><a href="#M1">Mission 1</a></li>
+        <li><a href="#Presentation du groupe">Présentation du groupe</a></li>
+        <li><a href="mission1.html">Mission 1</a></li>
         <li><a href="#M2">Mission 2</a></li>
         <li><a href="#M3">Mission 3</a></li>
     </ol>
@@ -24,29 +24,5 @@
     <p><u>La troisième mission</u> comporte le même objectif que la seconde mais avec des requêtes plus complexes afin d'enrichir nos connaissances rudimentaire en SQL. Il a été notamment nécessaire d'employer des fonctions tel que GROUP BY, HAVING ou EXISTS afin de filtrer efficacement les données </p>
     <p>Chaque requête ont été effectué et lancé directement avec l'IDE intégré d'Access qui ne possède aucune aide d'auto-complétion ni de détecteur d'erreur (comme à l'ancienne)</p>
     </article>
-
-    <h2 id="M1">Mission 1</h2>
-    <article>
-    <p>Le fichier mis a disposition lors de la mission 1 est un classeur excel contenant une feuille par table de la base de donnée de KDOU</p>
-    <p>Voici les différentes tables de cette base de donnée : </p>
-    <ul>
-        <li>Fournisseur</li>
-        <li>Produit</li>
-        <li>Categorie</li>
-        <li>Clientele</li>
-        <li>Commande</li>
-        <li>DetailCommande</li>
-    </ul>
-    <p>Pour résumer, lors de cette mission, on a vu que chaque table était conforme, c'est-à-dire qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par l'absence de contraintes d'intégritées sur les tables.</p>
-    <p>Voici ci-dessous quelques exemples</p>
-    <img src= "image.png" alt ="Ex1">
-    <p>Dans la table fournisseur, ces deux sociétés distincts possèdent le même N°Fournisseur(qui est une clé primaire), il y a une grave erreur</p>
-    <img src ="image2.png" alt = "Ex2">
-    <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone, ce qui est absurde</p>
-    <p>Finalement, à travers l'analyse des données de KDOU sur le classeur excel, on peut dire avec certitude qu'ajouter des contraintes d'intégrités dans la base de donnée est nécessaire pour limiter les erreurs d'inattention. Ne pas utiliser excel comme outil de base de donnée en est une autre...</p>
-    </article>
-
-    <h2 id="M2">Mission 2</h2>
-    <h2 id="M3">Mission 3</h2>
 </body>
 </html>
