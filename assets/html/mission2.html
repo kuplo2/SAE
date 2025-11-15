@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@ FROM Clientele AS c <br>
 WHERE c.Ville = "Paris" <br>
 ORDER BY c.Societe; <br>
         </code>
-        <img src = ex2-1.png>
+        <img src = "../image/ex2-1.png">
         <p>Comme vous le constatez, des erreurs lié aux fautes de frappes/d'orthographe subsiste</p>
         <hr>
         <p>On cherche les clients qui ont acheté des produits correspondant à la catégorie viande ou poisson</p>
@@ -50,7 +50,7 @@ INNER JOIN Categorie AS cat ON p.CodeCategorie = cat.CodeCategorie <br>
 WHERE cat.NomCategorie LIKE "*viande*" OR cat.NomCategorie LIKE "*poisson*" <br>
 ORDER BY 1,2; <br>
         </code>
-        <img src="ex2-2.png">
+        <img src="../image/ex2-2.png">
         <hr>
         <p>On cherche les 5 dernières commandes du client "Max Deschamps"</p>
         <h3>Résultat</h3>
