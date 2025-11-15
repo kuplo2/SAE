@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>Présentation du groupe</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="presentation.html">Présentation du groupe</a></li>
+                <li><a href="indicateurs.html">Mission 1</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <article>
+        <p> Groupe 109 : Noémie JALIER, Léane CAILLEREZ, Daniel CHEN</p>
+        <p>Chaque mission de la SAE R1_04 se focalise sur différent objectif :</p>
+        <p><u>La première mission</u> consiste à d'abord se familiariser avec les bases de données en analysant les
+            données disponibles(sans requête SQL) dans le fichier excel de l'entreprise KDOU, pour comprendre le contenu de chaque table et comprendre 
+        les liens entre les tables.</p>
+        
+        <p>Le fichier mis a disposition lors de la mission 1 est un classeur excel contenant une feuille par table de la
+            base de donnée de KDOU</p>
+        <p>Voici les différentes tables de cette base de donnée : </p>
+        <ul>
+            <li>Fournisseur</li>
+            <li>Produit</li>
+            <li>Categorie</li>
+            <li>Clientele</li>
+            <li>Commande</li>
+            <li>DetailCommande</li>
+        </ul>
+        <p>Pour résumer, lors de cette mission, on a veiller à vérifier que chaque table était conforme, c'est-à-dire
+            qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par
+            l'absence de contraintes d'intégritées sur les tables.</p>
+        <p>Voici ci-dessous quelques exemples</p>
+        <img src="ex1.png" alt="Ex1">
+        <p>Dans la table fournisseur, ces deux sociétés distincts possèdent le même N°Fournisseur(qui est une clé
+            primaire), il y a une grave erreur</p>
+        <img src="ex2.png" alt="Ex2">
+        <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone (considéré comme une
+            clé candidates), ce qui est absurde</p>
+        <p>Finalement, à travers l'analyse des données de KDOU sur le classeur excel, on peut dire avec certitude
+            qu'ajouter des contraintes d'intégrités dans la base de donnée est nécessaire pour limiter les erreurs
+            d'inattention. Ne pas utiliser excel comme outil de base de donnée en est une autre...</p>
+    </article>
+    
+    
+    <article>
+      <p><u>La seconde mission</u> nous amène à découvrir la base de donnée de celle-ci sous un fichier Access.
+            C'est
+            durant cette mission qu'il a fallu commencer à manipuler les requêtes SQL afin d'accéder aux données
+            pertinents de l'entreprise. </p>
+            <p>On a analyser la tendance d'achat chez les clients de Kdou (Quels sont clients qui achètent de la
+            viande ou du poisson ?), la gestion des produits (Quels sont les produits (fournisseur et pays de
+            provenance) de catégorie viandes ou poissons ayant un coût d’achat de plus de 50€ ?),les 
+            fournisseurs hors UE...etc.</p>
+            
+      <p><u>La troisième mission</u> comporte le même objectif que la seconde mais avec des requêtes plus
+            complexes
+            afin d'enrichir nos connaissances rudimentaire en SQL. Il a été notamment nécessaire d'employer des
+            fonctions tel que GROUP BY, HAVING ou EXISTS afin de filtrer efficacement les données </p>
+            <p> Finalement, lors de la mission 3, on s'est plus penché sur des indicateurs de Kdou (chiffre d'affaire
+            généré par un produit, nombre de clients pilotes, nombres de produits...etc.). Nous avons pu créer un 
+            indicateur chacun, pour aider l'entreprise KDou à visualiser ses axes d'amélioration.</p>
+        <p>Chaque requête ont été effectué et lancé directement avec l'IDE intégré d'Access qui ne possède aucune
+            aide
+            d'auto-complétion ni de détecteur d'erreur (comme à l'ancienne)</p>
+            <p>Pour ce qui est des outils utilisés, Exel est un bon gestionnaire de données brut, c'est simple de faire 
+            des calculs avec les cellules et c'est visuel. Pour Access QBE, c'est un très bon outils de visualisation 
+            de données. Contrairement à Exel, les requêtes peuvent être plus poussées et plus précises car on introduit
+            la notion de clé primaire et clés étrangères pour lier les tables et calculer des indicateurs sur plusieurs catégorie.</p>
+            <p> De plus, faire des requêtes avec l'outils création permet de faciliter la gestion de données (et de rendre plus
+            accessible), et est une bonne introduction au langage SQL (aussi présent sur le logiciel). SQL permet de bien réfléchir 
+            à une requête avant de la créer : dans quelle table est l'information? Faut il la liéer avec une autre? Quel est la 
+            condition à remplir? Qu'est-ce qui sera affiché?</p>
+            <p> <u>Plus globalement,</u> cette SAE à permis de nous introduire la manipulation de bases de données, notamment avec 
+            le langage SQL. Mais aussi, une "immersion" comme en entreprise, l'esprit d'analyse, le travail en équipe et les comptes rendus à rendre. 
+</p>
+    </article>
+    
+        
+        
+    </main>
+
+</body>
+
+</html>
