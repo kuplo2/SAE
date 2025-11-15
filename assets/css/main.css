@@ -18,6 +18,7 @@ html { /*Définission de la taille de police de base : rem*/
     background-color: var(--bleu-noir, #22222F);
     z-index: 0;
     font-family: "Oswald", Oswald, sans-serif;
+    color: aliceblue;
 }
 
 nav { /*navbar fixée*/
@@ -34,7 +35,6 @@ nav li { /*éléments de la navbar centrés*/
     text-transform: uppercase;
     font-weight: bold;
     margin: 30px;
-    width: 10rem;
     font-size: 20px;
     justify-content: space-around;
     align-items: center;
@@ -49,7 +49,7 @@ main { /*marge pour aérer*/
 }
 
 h1 {
-    margin: 30px;
+    margin: 35px;
     display: flex;
     font-size: 1.3rem;
     font-weight: bold;
@@ -76,8 +76,8 @@ h3 {
 
 p {
     display: block;
-    border-left: 30px;
     margin: 20px;
+    padding: 8px;
     font-family: "Oswald", Oswald, sans-serif;
 }
 
@@ -101,6 +101,32 @@ main ul > li { /*main pour être sûrs de ne pas toucher aux ul de la nav*/
     border-left: dashed aqua;
 }
 
+code{
+    color: var(--nav-bg, #d9b5ff);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+table {
+    background-color: indigo;
+    padding: 10px;
+    margin: 10px;
+    border: solid aliceblue 10px;
+    border-radius: 5px;
+    caption {
+        color: var(--titre, #FFB76BFF);
+    }
+
+    thead {
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    th, td {
+        margin: 10px 10px;
+    }
+}
+
 a:link {
     text-decoration: none;
     color: mediumvioletred;
@@ -119,24 +145,32 @@ a:active {
     color: darkred;
 }
 
-img{
+img {
     padding: 3px;
     border: solid darkred;
-    margin:5px;
+    margin: 5px;
     font-size: 0.6rem;
+    max-width: 100%;
+    height: auto;
+    display: block
 }
 
 footer {
+    color: var(--bleu-noir, #22222F);
     z-index: 10;
     display: flex;
     font-size: 0.8rem;
     justify-content: end;
     margin: 0;
-    background: var(--nav-bg, #d9b5ff);
+    background-color: var(--nav-bg, #d9b5ff);
     width: 100%;
     position: fixed;
     padding: 0;
     bottom: 0;
+
+    p {
+        margin: 10px;
+    }
 }
 
 /*Partie responsive : téléphone*/
@@ -164,23 +198,34 @@ footer {
     nav li { /*navbar fixée*/
         text-transform: uppercase;
         font-weight: bold;
-        margin: 20px;
-        width: 10rem;
-        font-size: 1.2rem;
+        margin: 10px;
+        font-size: 1.1rem;
         justify-content: space-around;
         align-items: center;
         display: inline;
     }
 
     footer {
+        color: var(--bleu-noir, #22222F);
         z-index: 10;
         display: flex;
         padding: 0;
         font-size: 0.8rem;
-        justify-content: center;
+        justify-content: end;
         background: var(--nav-bg, #d9b5ff);
         width: 100%;
         position: fixed;
         bottom: 0;
+
+        p {
+            margin: 5px;
+        }
     }
+
+    img {
+        max-width: 100%; /*Pour ne pas dépasser l'écran*/
+        height: auto;
+        display: block;
+    }
+
 }
