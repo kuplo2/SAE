@@ -6,27 +6,43 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="menu">
+        <ul>
+            <li><a href="presentation.html">Présentation du groupe</a></li>
+            <li><a href="mission1.html">Mission 1</a></li>
+            <li><a href="mission2.html">Mission 2</a></li>
+            <li><a href="mission3.html">Mission 3</a></li>
+        </ul>
+    </nav>
     <header>
         <h1>Mission 1</h1>
     </header>
     <article>
-    <p>Le fichier mis a disposition lors de la mission 1 est un classeur excel contenant une feuille par table de la base de donnée de KDOU</p>
-    <p>Voici les différentes tables de cette base de donnée : </p>
-    <ul>
-        <li>Fournisseur</li>
-        <li>Produit</li>
-        <li>Categorie</li>
-        <li>Clientele</li>
-        <li>Commande</li>
-        <li>DetailCommande</li>
-    </ul>
-    <p>Pour résumer, lors de cette mission, on a veiller à vérifier que chaque table était conforme, c'est-à-dire qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par l'absence de contraintes d'intégritées sur les tables.</p>
-    <p>Voici ci-dessous quelques exemples</p>
-    <img src= "ex1.png" alt ="Ex1">
-    <p>Dans la table fournisseur, ces deux sociétés distincts possèdent le même N°Fournisseur(qui est une clé primaire), il y a une grave erreur</p>
-    <img src ="ex2.png" alt = "Ex2">
-    <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone (considéré comme une clé candidates), ce qui est absurde</p>
-    <p>Finalement, à travers l'analyse des données de KDOU sur le classeur excel, on peut dire avec certitude qu'ajouter des contraintes d'intégrités dans la base de donnée est nécessaire pour limiter les erreurs d'inattention. Ne pas utiliser excel comme outil de base de donnée en est une autre...</p>
+        <p>Le fichier mis a disposition lors de la mission 1 est un classeur excel contenant une feuille par table de la
+            base de donnée de KDOU</p>
+        <p>Voici les différentes tables de cette base de donnée : </p>
+        <ul>
+            <li>Fournisseur</li>
+            <li>Produit</li>
+            <li>Categorie</li>
+            <li>Clientele</li>
+            <li>Commande</li>
+            <li>DetailCommande</li>
+        </ul>
+        <p>Pour résumer, lors de cette mission, on a veiller à vérifier que chaque table était conforme, c'est-à-dire
+            qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par
+            l'absence de contraintes d'intégritées sur les tables.</p>
+        <p>Voici ci-dessous quelques exemples</p>
+        <img src="ex1.png" alt="Ex1">
+        <p>Dans la table fournisseur, ces deux sociétés distincts possèdent le même N°Fournisseur(qui est une clé
+            primaire), il y a une grave erreur</p>
+        <img src="ex2.png" alt="Ex2">
+        <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone (considéré comme une
+            clé candidates), ce qui est absurde</p>
+        <p>Finalement, à travers l'analyse des données de KDOU sur le classeur excel, on peut dire avec certitude
+            qu'ajouter des contraintes d'intégrités dans la base de donnée est nécessaire pour limiter les erreurs
+            d'inattention. Ne pas utiliser excel comme outil de base de donnée en est une autre...</p>
     </article>
 </body>
+
 </html>
