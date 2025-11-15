@@ -7,41 +7,30 @@
     padding: 0;
 }
 
-root{
+root {
     --bleu-noir: #22222F;
-    --nav-bg:#d9b5ff;
-    --titre:#ffb76b;
+    --nav-bg: #d9b5ff;
+    --titre: #ffb76b;
 }
 
-@media (max-width: 768px) {
-    nav{
-        z-index: 10;
-        display: flex;
-        background: #d9b5ff;
-        width: max-content;
-        position: fixed;
-        top:0;
-        left: 192px;
-    }
-}
-
-html{
+html { /*Définission de la taille de police de base : rem*/
     font-size: 22px;
     background-color: var(--bleu-noir, #22222F);
     z-index: 0;
+    font-family: "Oswald", Oswald, sans-serif;
 }
 
-nav{
+nav { /*navbar fixée*/
     z-index: 10;
     display: flex;
     justify-content: center;
     background: var(--nav-bg, #d9b5ff);
     width: 100%;
     position: fixed;
-    top:0;
+    top: 0;
 }
 
-nav li{ /*navbar fixée*/
+nav li { /*éléments de la navbar centrés*/
     text-transform: uppercase;
     font-weight: bold;
     margin: 30px;
@@ -52,28 +41,40 @@ nav li{ /*navbar fixée*/
     display: inline;
 }
 
-main{
+main { /*marge pour aérer*/
     color: aliceblue;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 100px;
 }
 
-h1{
+h1 {
     margin: 30px;
     display: flex;
+    font-size: 1.3rem;
+    font-weight: bold;
     color: var(--titre, #ffb76b);
     text-transform: uppercase;
     justify-content: center;
 }
 
-h2{
+h2 {
     display: flex;
+    font-size: 1.2rem;
     justify-content: center;
     text-decoration: underline;
-    margin:20px
+    margin: 20px
 }
 
-p{
+h3 {
+    display: flex;
+    font-size: 1.1rem;
+    justify-content: center;
+    text-decoration: wavy;
+    margin: 20px
+}
+
+p {
     display: block;
     border-left: 30px;
     margin: 20px;
@@ -84,7 +85,7 @@ u {
     text-decoration: underline;
 }
 
-main ul {
+main ul { /*main pour être sûrs de ne pas toucher aux ul de la nav*/
     display: flex;
     flex-direction: column;
     border-bottom: solid 2px;
@@ -92,7 +93,7 @@ main ul {
     margin: 30px;
 }
 
-main ul>li{
+main ul > li { /*main pour être sûrs de ne pas toucher aux ul de la nav*/
     list-style-position: inside;
     list-style-type: " ▷ ";
     font-size: 0.9em;
@@ -100,30 +101,86 @@ main ul>li{
     border-left: dashed aqua;
 }
 
-a:link{
+a:link {
     text-decoration: none;
     color: mediumvioletred;
 }
 
-a:visited{
+a:visited {
     color: indigo;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
     color: crimson;
 }
 
-a:active{
+a:active {
     color: darkred;
 }
 
-footer{
+img{
+    padding: 3px;
+    border: solid darkred;
+    margin:5px;
+    font-size: 0.6rem;
+}
+
+footer {
     z-index: 10;
     display: flex;
-    justify-content: center;
+    font-size: 0.8rem;
+    justify-content: end;
+    margin: 0;
     background: var(--nav-bg, #d9b5ff);
     width: 100%;
     position: fixed;
-    bottom:0;
+    padding: 0;
+    bottom: 0;
+}
+
+/*Partie responsive : téléphone*/
+
+@media (max-width: 885px) {
+    /*largeur max avant un wrap de la navbar*/
+    html {
+        font-size: 12px;
+    }
+
+    body {
+        max-width: 885px;
+    }
+
+    nav {
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        background: var(--nav-bg, #d9b5ff);
+        width: 100%;
+        position: fixed;
+        top: 0;
+    }
+
+    nav li { /*navbar fixée*/
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 20px;
+        width: 10rem;
+        font-size: 1.2rem;
+        justify-content: space-around;
+        align-items: center;
+        display: inline;
+    }
+
+    footer {
+        z-index: 10;
+        display: flex;
+        padding: 0;
+        font-size: 0.8rem;
+        justify-content: center;
+        background: var(--nav-bg, #d9b5ff);
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
 }
