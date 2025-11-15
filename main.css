@@ -40,7 +40,7 @@ nav{
     top:0;
 }
 
-nav > ol li{ /*navbar fixée*/
+nav ul ol li{ /*navbar fixée*/
     text-transform: uppercase;
     font-weight: bold;
     margin: 30px;
@@ -124,3 +124,4 @@ footer{
     position: fixed;
     bottom:0;
 }
+
