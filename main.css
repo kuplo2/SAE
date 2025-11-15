@@ -38,17 +38,16 @@ nav{
     width: 100%;
     position: fixed;
     top:0;
-}
-
-nav ul ol li{ /*navbar fixée*/
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: 30px;
-    width: 10rem;
-    font-size: 20px;
-    justify-content: space-around;
-    align-items: center;
-    display: inline;
+    ol, ul, li{ /*navbar fixée*/
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 30px;
+        width: 10rem;
+        font-size: 20px;
+        justify-content: space-around;
+        align-items: center;
+        display: inline;
+    }
 }
 
 main{
@@ -124,4 +123,3 @@ footer{
     position: fixed;
     bottom:0;
 }
-
