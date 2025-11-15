@@ -3,222 +3,215 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mission 3</title>
-    <link rel="stylesheet" href="main.css" />
+    <title>Mission 3  Analyse des données KDou (SQL)</title>
+    <link rel="stylesheet" href="M3style.css" />
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="presentation.html">Présentation du groupe</a></li>
-                <li><a href="mission1.html">Mission 1</a></li>
-                <li><a href="mission2.html">Mission 2</a></li>
-                <li><a href="mission3.html">Mission 3</a></li>
-                <li><a href="conclusion.html">Conclusion</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <label for="toggle">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="accueil.html">Accueil</a>
+            <a href="mission1.html">Mission 1</a>
+            <a href="mission2.html">Mission 2</a>
+            <a href="mission3.html">Mission 3</a>
+            <a href="bilan.html">Bilan</a>
+        </div>
+    </nav>
+</header>
 
-    <h1>Mission 3 Indicateurs proposés par l’équipe</h1>
-
-    <hr>
-
-    <!-- requete de Leane -->
-    <main>
-        <h2>Indicateur 1 - Léane</h2>
-        <h3>Fournisseurs UE / Hors UE par catégorie</h3>
-
-        <h3>Énoncé</h3>
-        <p>
-            On veut connaître le nombre de fournisseurs situés dans l’UE et hors UE pour chaque catégorie de
-            produits.<br>
-            Cela permet d’identifier les catégories déjà bien couvertes par des fournisseurs européens afin de réduire
-            les
-            trajets longs et l’impact écologique.<br>
-        </p>
+<h1>SAE 1.04 – Mission 3<br>Indicateurs proposés par l’équipe</h1>
 
 
-        <h3>Construction</h3>
-        <p>
-            Cette requête nous permet de connaître le nombre de fournisseur dans l’UE
-            et en-dehors pour chaque catégorie de produit,<br>
-            mais même si réduire les fournisseurs serait bénéfique écologiquement,
-            cela resterait négatif pour le catalogue de KDou.<br>
-        </p>
+<div class="menu1">
+    <a href="#ind1">Indicateur 1</a>
+    <a href="#ind2">Indicateur 2</a>
+    <a href="#ind3">Indicateur 3</a>
+    <a href="#ind4">Indicateur 4</a>
+    <a href="#ind5">Indicateur 5</a>
+</div>
 
-        <h3>Requête SQL</h3>
-        <code>
-SELECT Pays.UE, c.NomCateg, Count(f.NoFour) AS NbFour<br>
-FROM ((Fournisseur AS f<br>
-INNER JOIN Pays ON Pays.NoPays = f.NoPays)<br>
-INNER JOIN Produit AS p ON f.NoFour = p.NoFour)<br>
-INNER JOIN Categorie AS c ON p.CodeCateg = c.CodeCateg<br>
-GROUP BY Pays.UE, c.NomCateg<br>
-ORDER BY 1, 2;<br>
-   </code>
+<hr>
 
+<!-- requete de Leane -->
+<h2 id="ind1">Indicateur 1</h2>
+<h3>Fournisseurs UE / Hors UE par catégorie</h3>
+<p><strong>Auteur :</strong> Léane</p>
 
-        <h3>Résultat </h3>
-        <p><img src="Assets/leane.png" alt="résultat requete Leane"></p>
+<h3>Énoncé</h3>
+<p>
+    On veut connaître le nombre de fournisseurs situés dans l’UE et hors UE pour chaque catégorie de produits.<br>
+    Cela permet d’identifier les catégories déjà bien couvertes par des fournisseurs européens afin de réduire les
+    trajets longs et l’impact écologique.<br>
+</p>
 
+<h3>Construction</h3>
+<p>
+    Cette requête nous permet de connaître le nombre de fournisseur dans l’UE
+    et en-dehors pour chaque catégorie de produit,<br>
+    mais même si réduire les fournisseurs serait bénéfique écologiquement,
+    cela resterait négatif pour le catalogue de KDou.<br>
+</p>
 
-        <hr>
-
-        <!-- requete de daniel -->
-        <h2>Indicateur 2 - Daniel</h2>
-        <h3>Produits insuffisant pour les commandes + coût pour en racheter 50</h3>
-
-        <h3>Énoncé</h3>
-        <p>
-            L’objectif est d’identifier les produits n'ayant pas assez de stocke pour les commandes et de calculer<br>
-            le coût pour remonter
-            leur
-            stock à 50 unités. Cela permet d’anticiper les commandes et d’éviter les ruptures.
-        </p>
-
-        <h3>Construction </h3>
-        <p>
-            La requête rassemble les produits, leurs ventes récentes et leur stock actuel. On calcule la demande,<br>
-            puis le coût pour remonter le stock à 50 unités. Le HAVING filtre les produits où la demande dépasse le
-            stock.<br>
-        </p>
-
-        <h3>Requête SQL</h3>
-        <code>
-SELECT DISTINCT p.RefProd, p.NomProd, p.UnitStock, Count(dc.Quantite) AS Demande,<br>
-       (50 - p.UnitStock) * p.CoutAchat AS Prix_Restock<br>
-FROM ((Produit AS p<br>
-INNER JOIN Categorie AS ca ON p.CodeCateg = ca.CodeCateg)<br>
-INNER JOIN DetailCommande AS dc ON dc.RefProduit = p.RefProd)<br>
-INNER JOIN Commande AS co ON co.NCommande = dc.NCommande<br>
-WHERE co.DateEnv IS NULL<br>
-GROUP BY p.RefProd, p.NomProd, p.UnitStock, (50 - p.UnitStock) * p.CoutAchat<br>
-HAVING p.UnitStock < Count(dc.Quantite)<br>
-ORDER BY 4;<br>
+<h3>Requête SQL</h3>
+<code>
+    SELECT Pays.UE, c.NomCateg, Count(f.NoFour) AS NbFour<br>
+    FROM ((Fournisseur AS f<br>
+    INNER JOIN Pays ON Pays.NoPays = f.NoPays)<br>
+    INNER JOIN Produit AS p ON f.NoFour = p.NoFour)<br>
+    INNER JOIN Categorie AS c ON p.CodeCateg = c.CodeCateg<br>
+    GROUP BY Pays.UE, c.NomCateg<br>
+    ORDER BY 1, 2;<br>
 </code>
 
-        <h3>Résultat</h3>
-        <p><img src="assets/daniel.png" alt="résultat requete daniel"></p>
+<h3>Résultat </h3>
+<p><img src="Assets/leane.png" alt="résultat requete Leane"></p>
 
+<hr>
 
-        <hr>
+<!-- requete de daniel -->
+<h2 id="ind2">Indicateur 2 </h2>
+<h3>Produits proches de la rupture + coût pour en racheter 50</h3>
+<p><strong>Auteur :</strong> Daniel</p>
 
-        <!-- requete de noemie -->
-        <h2>Indicateur 3</h2>
-        <h3>Quantité d’emballages recyclables commandés</h3>
-        <p><strong>Auteur :</strong> Noémie</p>
+<h3>Énoncé</h3>
+<p>
+    L’objectif est d’identifier les produits proches de la rupture de stock et de calculer<br>
+    le coût pour remonter leur stock à 50 unités. Cela permet d’anticiper les commandes et d’éviter les ruptures.
+</p>
 
-        <h3>Énoncé</h3>
-        <p>
-            Pour des intérêts écologiques, on s’intéresse à l’emballages des produits afin de voir ceux qui sont
-            recyclables
-            et<br>
-            biodégradables et donc à faible impact environnemental (on se concentrera sur les verres, carton(s) et
-            cannettes).<br>
-            La composition des produits tel que les boîtes, sacs, pots (etc) n’étant pas précisée, on ne les prendra pas
-            en
-            compte.<br>
-        </p>
+<h3>Construction </h3>
+<p>
+    La requête rassemble les produits, leurs ventes récentes et leur stock actuel. On calcule la demande,<br>
+    puis le coût pour remonter le stock à 50 unités. Le HAVING filtre les produits où la demande dépasse le stock.<br>
+</p>
 
-        <h3>Construction</h3>
-        <p>
-            La requête filtre uniquement les produits avec un emballage recyclable.<br> On calcule ensuite le total
-            commandé en utilisant la fonction SUM.
-        </p>
+<h3>Requête SQL</h3>
+<code>
+    SELECT DISTINCT p.RefProd, p.NomProd, p.UnitStock, Count(dc.Quantite) AS Demande,<br>
+    (50 - p.UnitStock) * p.CoutAchat AS Prix_Restock<br>
+    FROM ((Produit AS p<br>
+    INNER JOIN Categorie AS ca ON p.CodeCateg = ca.CodeCateg)<br>
+    INNER JOIN DetailCommande AS dc ON dc.RefProduit = p.RefProd)<br>
+    INNER JOIN Commande AS co ON co.NCommande = dc.NCommande<br>
+    WHERE co.DateEnv IS NULL<br>
+    GROUP BY p.RefProd, p.NomProd, p.UnitStock, (50 - p.UnitStock) * p.CoutAchat<br>
+    HAVING p.UnitStock &lt; Count(dc.Quantite)<br>
+    ORDER BY 4;<br>
+</code>
 
-        <h3>Requête SQL</h3>
-        <code>
-SELECT SUM(DC.Quantité) AS EMBALLAGES<br>
-FROM Produit AS P<br>
-     INNER JOIN DetailCommande AS DC<br>
-        ON P.RefProd = DC.RefProduit<br>
-WHERE (P.QteParUnit LIKE "*carton*"<br>
+<h3>Résultat</h3>
+<p><img src="assets/daniel.png" alt="résultat requete daniel"></p>
+
+<hr>
+
+<!-- requete de noemie -->
+<h2 id="ind3">Indicateur 3</h2>
+<h3>Quantité d’emballages recyclables commandés</h3>
+<p><strong>Auteur :</strong> Noémie</p>
+
+<h3>Énoncé</h3>
+<p>
+    Pour des intérêts écologiques, on s’intéresse à l’emballages des produits afin de voir ceux qui sont recyclables et<br>
+    biodégradables et donc à faible impact environnemental (on se concentrera sur les verres, carton(s) et cannettes).<br>
+    La composition des produits tel que les boîtes, sacs, pots (etc) n’étant pas précisée, on ne les prendra pas en compte.<br>
+</p>
+
+<h3>Construction</h3>
+<p>
+    La requête filtre uniquement les produits avec un emballage recyclable.<br>
+    On calcule ensuite le total commandé en utilisant la fonction SUM.
+</p>
+
+<h3>Requête SQL</h3>
+<code>
+    SELECT SUM(DC.Quantité) AS EMBALLAGES<br>
+    FROM Produit AS P<br>
+    INNER JOIN DetailCommande AS DC<br>
+    ON P.RefProd = DC.RefProduit<br>
+    WHERE (P.QteParUnit LIKE "*carton*"<br>
     OR P.QteParUnit LIKE "*verre*"<br>
     OR P.QteParUnit LIKE "*canette*");<br>
 </code>
 
-        <h3>Résultat</h3>
-        <p><img src="assets/noemie1.png" alt="résultat requete Noémie"></p>
+<h3>Résultat</h3>
+<p><img src="assets/noemie1.png" alt="résultat requete Noémie"></p>
 
+<hr>
 
-        <hr>
+<!-- ma requete -->
+<h2 id="ind4">Indicateur 4 </h2>
+<h3>Produits sur-stockés par rapport aux ventes</h3>
+<p><strong>Auteur :</strong> Clément</p>
 
-        <!-- ma requete -->
-        <h2>Indicateur 4 - Clément</h2>
-        <h3>Produits sur-stockés par rapport aux ventes</h3>
+<h3>Énoncé</h3>
+<p>
+    On repère les produits dont le stock est trop élevé par rapport aux ventes,<br>
+    afin d’éviter le gaspillage et d’optimiser les coûts de stockage.
+</p>
 
-        <h3>Énoncé</h3>
-        <p>
-            On repère les produits dont le stock est trop élevé par rapport aux ventes,<br> afin d’éviter le gaspillage
-            et d’optimiser les coûts de stockage.
-        </p>
+<h3>Construction</h3>
+<p>
+    On utilise un LEFT JOIN pour inclure les produits jamais vendus. NZ() convertit les Null en 0.<br>
+    La condition HAVING garde uniquement les produits dont le stock dépasse largement les ventes.
+</p>
 
-        <h3>Construction</h3>
-        <p>
-            On utilise un LEFT JOIN pour inclure les produits jamais vendus. NZ() convertit les Null en 0.<br> La
-            condition
-            HAVING
-            garde uniquement les produits dont le stock dépasse largement les ventes.
-        </p>
-
-        <h3>Requête SQL</h3>
-        <code>
-SELECT<br>
+<h3>Requête SQL</h3>
+<code>
+    SELECT<br>
     Produit.RefProd,<br>
     Produit.NomProd,<br>
     Produit.UnitStock AS StockActuel,<br>
     Nz(Sum(DetailCommande.[Quantité]), 0) AS QteVendue,<br>
     Produit.UnitStock - Nz(Sum(DetailCommande.[Quantité]), 0) AS StockRestant<br>
-FROM Produit<br>
-LEFT JOIN DetailCommande<br>
+    FROM Produit<br>
+    LEFT JOIN DetailCommande<br>
     ON Produit.RefProd = DetailCommande.[Réf produit]<br>
-GROUP BY Produit.RefProd, Produit.NomProd, Produit.UnitStock<br>
-HAVING Produit.UnitStock > Nz(Sum(DetailCommande.[Quantité]), 0) * 2<br>
-ORDER BY Produit.UnitStock - Nz(Sum(DetailCommande.[Quantité]), 0) DESC;<br>
+    GROUP BY Produit.RefProd, Produit.NomProd, Produit.UnitStock<br>
+    HAVING Produit.UnitStock &gt; Nz(Sum(DetailCommande.[Quantité]), 0) * 2<br>
+    ORDER BY Produit.UnitStock - Nz(Sum(DetailCommande.[Quantité]), 0) DESC;<br>
 </code>
 
-        <h3>Résultat</h3>
-        <p><img src="assets/clem.png" alt="résultat requete Clément"></p>
+<h3>Résultat</h3>
+<p><img src="assets/clem.png" alt="résultat requete Clément"></p>
 
+<hr>
 
-        <hr>
+<!--  la requete de Antonius -->
+<h2 id="ind5">Indicateur 5 </h2>
+<h3>Fréquence d’achat et fréquence de remise</h3>
+<p><strong>Auteur :</strong> Antonius</p>
 
-        <!--  la requete de Antonius -->
-        <h2>Indicateur 5 - Antonius</h2>
-        <h3>Fréquence d’achat et fréquence de remise</h3>
+<h3>Énoncé</h3>
+<p>
+    On étudie la fréquence des commandes par client et la fréquence des remises appliquées,<br>
+    afin d’ajuster la politique de remises et mieux comprendre le comportement des clients.<br>
+</p>
 
-        <h3>Énoncé</h3>
-        <p>
-            On étudie la fréquence des commandes par client et la fréquence des remises appliquées,<br>
-            afin d’ajuster la politique de remises et mieux comprendre le comportement des clients.<br>
-        </p>
+<h3>Construction</h3>
+<p>
+    On relie Clientele avec Commande avec DetailCommande afin de compter les commandes et les remises par client.<br>
+    IIF() permet de compter uniquement les lignes où une remise a été appliquée.<br>
+</p>
 
-        <h3>Construction</h3>
-        <p>
-            On relie Clientele avec Commande avec DetailCommande afin de compter les commandes et les remises par
-            client.<br>
-            IIF() permet de compter uniquement les lignes où une remise a été appliquée.<br>
-        </p>
-
-        <h3>Requête SQL</h3>
-        <code>
-SELECT c.CodeCli, c.Societe AS Company, c.Contact,<br>
-       COUNT(cmd.NCommande) AS FreqCommandes,<br>
-       SUM(IIF(d.Remise <> 0, 1, 0)) AS FreqRemises<br>
-FROM (Clientele c LEFT JOIN Commande cmd ON c.CodeCli = cmd.CodeCli)<br>
-     LEFT JOIN DetailCommande d ON cmd.NCommande = d.NCommande<br>
-GROUP BY c.CodeCli, c.Societe, c.Contact;<br>
+<h3>Requête SQL</h3>
+<code>
+    SELECT c.CodeCli, c.Societe AS Company, c.Contact,<br>
+    COUNT(cmd.NCommande) AS FreqCommandes,<br>
+    SUM(IIF(d.Remise &lt;&gt; 0, 1, 0)) AS FreqRemises<br>
+    FROM (Clientele c LEFT JOIN Commande cmd ON c.CodeCli = cmd.CodeCli)<br>
+    LEFT JOIN DetailCommande d ON cmd.NCommande = d.NCommande<br>
+    GROUP BY c.CodeCli, c.Societe, c.Contact;<br>
 </code>
 
+<h3>Résultat </h3>
+<p><img src="assets/antonius.png" alt="résultat requete Antonius"></p>
 
-        <h3>Résultat </h3>
-        <p><img src="assets/antonius.png" alt="résultat requete Antonius"></p>
-    </main>
+<hr>
 
-    <hr>
-    <footer>
-        <p>Fait par le groupe : Léane, Daniel, Noémie, Clément, Antonius</p>
-    </footer>
+<footer>
+    <p>Fait par le groupe : Léane, Daniel, Noémie, Clément, Antonius</p>
+</footer>
 </body>
-
 </html>
