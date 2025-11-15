@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <header>
-        <h1>Mission 2</h1>
+        <h1>Mission 2 Interrogation d'une base de données(2)</h1>
         <nav class="menu">
             <ul>
                 <li><a href="presentation.html">Présentation du groupe</a></li>
@@ -19,6 +21,46 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <p>La mission 2 nous a amener à commencer à exploiter en SQL la base de donnée(BDD) de KDOU pour pouvoir par la
+            suite avoir des analyses et indicateurs pertinents (qu'on verra en mission 3).</p>
+        <p>Pour cela, il nous a été confié la BDD de KDOU sous un fichier Access qui contient cette fois-ci des
+            contraintes d'intégrités sur les tables. Les erreurs liées aux clés primaires ne sont donc plus possible.
+        </p>
+        <p>Voici quelques requêtes qu'on nous a demandé de réaliser avec cette base de donnée : </p>
+        <hr>
+        <p>Il a été demandé de vérifier les coordonnées des clients parisiens :</p>
+        <code>
+SELECT c.Contact, c.Societe, c.Ville, c.CodePostal, c.Tel, c.MailCli <br>
+FROM Clientele AS c <br>
+WHERE c.Ville = "Paris" <br>
+ORDER BY c.Societe; <br>
+        </code>
+        <img src = ex2-1.png>
+        <p>Comme vous le constatez, des erreurs lié aux fautes de frappes/d'orthographe subsiste</p>
+        <hr>
+        <p>On cherche les clients qui ont acheté des produits correspondant à la catégorie viande ou poisson</p>
+        <code>
+            SELECT DISTINCT cli.Societe, cli.Contact 
+
+FROM (((Clientele AS cli INNER JOIN Commande AS com ON cli.CodeClient = com.CodeCli) <br>
+INNER JOIN DetailCommande AS dc ON com.NCommande = dc.NCommande) <br>
+INNER JOIN Produit AS p ON dc.RefProduit = p.RefProduit) <br>
+INNER JOIN Categorie AS cat ON p.CodeCategorie = cat.CodeCategorie <br>
+WHERE cat.NomCategorie LIKE "*viande*" OR cat.NomCategorie LIKE "*poisson*" <br>
+ORDER BY 1,2; <br>
+        </code>
+
+
+
+
+
+
+
+    </main>
+    <footer>
+        <p>Fait par le groupe : Léane, Daniel, Noémie, Clément, Antonius</p>
+    </footer>
 
 </body>
 
