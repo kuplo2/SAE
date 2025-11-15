@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+root{
+    --bleu-noir: #22222F;
+    --nav-bg:#d9b5ff;
+    --titre:#ffb76b;
+}
+
+@media (max-width: 768px) {
+    nav{
+        z-index: 10;
+        display: flex;
+        background: #d9b5ff;
+        width: max-content;
+        position: fixed;
+        top:0;
+        left: 192px;
+    }
+}
+
+html{
+    font-size: 22px;
+    background-color: var(--bleu-noir, #22222F);
+    z-index: 0;
+}
+
+nav{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    background: var(--nav-bg, #d9b5ff);
+    width: 100%;
+    position: fixed;
+    top:0;
+}
+
+nav > ol li{ /*navbar fixée*/
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 30px;
+    width: 10rem;
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+    display: inline;
+}
+
+main{
+    color: aliceblue;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1{
+    margin: 30px;
+    display: flex;
+    color: var(--titre, #ffb76b);
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    margin:20px
+}
+
+
+p u{
+    display: block;
+    border-left: 30px;
+    margin: 20px;
+    font-family: "Oswald", Oswald, sans-serif;
+}
+
+u {
+    text-decoration: underline;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 2px;
+    border-top: solid 2px;
+    margin: 30px;
+}
+
+ul>li{
+    list-style-position: inside;
+    list-style-type: " ▷ ";
+    font-size: 0.9em;
+    padding-left: 5px;
+    border-left: dashed aqua;
+}
+
+a:link{
+    text-decoration: none;
+    color: mediumvioletred;
+}
+a:visited{
+    color: indigo;
+}
+a:hover{
+    text-decoration: underline;
+    color: crimson;
+}
+a:active{
+    color: darkred;
+}
+
+footer{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    background: var(--nav-bg, #d9b5ff);
+    width: 100%;
+    position: fixed;
+    bottom:0;
+}
