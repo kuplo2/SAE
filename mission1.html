@@ -20,17 +20,13 @@
         <li>Commande</li>
         <li>DetailCommande</li>
     </ul>
-    <p>Pour résumer, lors de cette mission, on a vu que chaque table était conforme, c'est-à-dire qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par l'absence de contraintes d'intégritées sur les tables.</p>
+    <p>Pour résumer, lors de cette mission, on a veiller à vérifier que chaque table était conforme, c'est-à-dire qu'elles possédaient tous bien une clé primaire cependant on a pu observer diverses incohérences causé par l'absence de contraintes d'intégritées sur les tables.</p>
     <p>Voici ci-dessous quelques exemples</p>
-    <img src= "image.png" alt ="Ex1">
+    <img src= "ex1.png" alt ="Ex1">
     <p>Dans la table fournisseur, ces deux sociétés distincts possèdent le même N°Fournisseur(qui est une clé primaire), il y a une grave erreur</p>
-    <img src ="image2.png" alt = "Ex2">
-    <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone, ce qui est absurde</p>
+    <img src ="ex2.png" alt = "Ex2">
+    <p>Dans la table Clientele, il y a deux clients qui possèdent le même numéro de téléphone (considéré comme une clé candidates), ce qui est absurde</p>
     <p>Finalement, à travers l'analyse des données de KDOU sur le classeur excel, on peut dire avec certitude qu'ajouter des contraintes d'intégrités dans la base de donnée est nécessaire pour limiter les erreurs d'inattention. Ne pas utiliser excel comme outil de base de donnée en est une autre...</p>
     </article>
-
-    <h2 id="M2">Mission 2</h2>
-    <h2 id="M3">Mission 3</h2>
-    
 </body>
 </html>
